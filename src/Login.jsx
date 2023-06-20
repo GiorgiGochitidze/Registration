@@ -1,9 +1,11 @@
 
 
 
+
 const Login = ({logName, logSurName, logPass, setLogName, setLogSurName, setLogPass, dataall}) => {
 
     function check(){
+
         if(dataall.name === logName){
             console.log(`Correct Name!! Your Name is ${dataall.name}`)
         } else{
@@ -25,6 +27,7 @@ const Login = ({logName, logSurName, logPass, setLogName, setLogSurName, setLogP
 
     return ( 
         <div className="login-container">
+            <h1 style={{marginTop: '-50px', marginBottom: '100px', color: 'white'}}>Check Result In Console</h1>
             <div className="login-form">
             <h2>LogIn Form</h2>
 

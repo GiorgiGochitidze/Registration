@@ -19,7 +19,6 @@ function App() {
   //for data
   const [dataall, setDataall] = useState(null);
   const [logindata, setLogindata] = useState([]);
-  const [missingFields, setMissingFields] = useState([]);
 
   //login usestates start
   const [logName, setLogName] = useState('')
@@ -42,17 +41,23 @@ function App() {
     setDataall(userData);
     console.log(userData);
 
-    const missing = [];
-    if (!name) {
+    if(!name){
       setMissname(true)
+    }else{
+      setMissname(false)
     }
-    if (!surname) {
-      setMisssurname(true)
+
+    if(!surname){
+      setMissname(true)
+    }else{
+      setMissname(false)
     }
-    if (!pass) {
-      setMisspass(true)
+
+    if(!pass){
+      setMissname(true)
+    }else{
+      setMissname(false)
     }
-    setMissingFields(missing);
   }
 
   function toRegister(){
