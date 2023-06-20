@@ -7,7 +7,7 @@ body{
 
 .container{
   width: 100%;
-  height: 724px;
+  height: 644px;
   overflow: hidden;
 }
 
@@ -48,6 +48,7 @@ header nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 }
 
 .form-container{
@@ -55,7 +56,7 @@ header nav{
   height: 500px;
   border: 1px solid white;
   background: transparent;
-  margin-top: -70px;
+  margin-top: 20px;
   border-radius: 20px;
   text-align: center;
   color: white;
@@ -113,7 +114,29 @@ header nav{
   cursor: pointer;
 }
 
-.login-button{
+.login-container{
+  width: 100%;
+  height: 644px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form{
+  width: 500px;
+  height: 500px;
+  border: 1px solid white;
+  background: transparent;
+  margin-top: -70px;
+  border-radius: 20px;
+  text-align: center;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.login-btn{
   width: 200px;
   height: 50px;
   background: transparent;
@@ -121,5 +144,24 @@ header nav{
   color: white;
   border-radius: 20px;
   font-size: 20px;
+  margin: 0 auto;
   cursor: pointer;
+}
+
+input::placeholder{
+  color: white;
+  opacity: 0.5;
+}
+
+.missed-fields{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: -40px;
+  margin-top: 30px;
+  color: white;
 }

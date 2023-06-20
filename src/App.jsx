@@ -5,12 +5,32 @@ import Home from './Home';
 import Login from './Login';
 
 function App() {
+  //header usestates start
   const [register, setRegister] = useState(false);
   const [logIn, setLogIn] = useState(true);
+  //header usestates end
+
+  //registration usestates start
   const [name, setName] = useState('');
   const [surname, setSurname] = useState('');
   const [pass, setPass] = useState('');
-  const [data, setData] = useState([]);
+  //registration usestates end
+
+  //for data
+  const [dataall, setDataall] = useState(null);
+  const [logindata, setLogindata] = useState([]);
+  const [missingFields, setMissingFields] = useState([]);
+
+  //login usestates start
+  const [logName, setLogName] = useState('')
+  const [logSurName, setLogSurName] = useState('')
+  const [logPass, setLogPass] = useState('')
+  //login usestates end
+
+  //for missed fields
+  const [missname, setMissname] = useState(false)
+  const [misssurname, setMisssurname] = useState(false)
+  const [misspass, setMisspass] = useState(false)
 
   function confirmRegister() {
     const userData = {
@@ -19,8 +39,30 @@ function App() {
       pass: pass
     };
     
-    setData(userData);
+    setDataall(userData);
     console.log(userData);
+
+    const missing = [];
+    if (!name) {
+      setMissname(true)
+    }
+    if (!surname) {
+      setMisssurname(true)
+    }
+    if (!pass) {
+      setMisspass(true)
+    }
+    setMissingFields(missing);
+  }
+
+  function toRegister(){
+    setLogIn(true)
+    setRegister(false)
+  }
+
+  function toLogIn(){
+    setLogIn(false)
+    setRegister(true)
   }
 
   return (
@@ -29,16 +71,15 @@ function App() {
     <header>
       <nav>
             
-        <Link to="/login"><button className='button'>LogIn</button></Link>
+        {logIn && <Link to="/login"><button onClick={toLogIn} className='button'>LogIn</button></Link>}
         
-        {register && <button className='button'>Register</button>}
+        {register && <Link to='/'><button onClick={toRegister} className='button'>Register</button></Link>}
       </nav>
     </header>
 
       <Routes>
-        <Route path='/login' element={<Login />} />
-        <Route path='/' element={<Home
-         name={name}
+        <Route path='/' element={<Home  
+          name={name}
           surname={surname}
           pass={pass}
           confirmRegister={confirmRegister}
@@ -46,7 +87,21 @@ function App() {
           register={register}
           setSurname={setSurname}
           setName={setName}
-          setPass={setPass} />} />
+          setPass={setPass}
+          missname={missname}
+          misssurname={misssurname}
+          misspass={misspass} />} />
+          
+        <Route path='/login' element={<Login 
+        logName={logName}
+        logSurName={logSurName}
+        logPass={logPass}
+        setLogName={setLogName}
+        setLogSurName={setLogSurName}
+        setLogPass={setLogPass}
+        setLogindata={setLogindata}
+        dataall={dataall}
+        />} />
       </Routes>
 
         </div>
