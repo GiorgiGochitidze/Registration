@@ -27,6 +27,7 @@ header nav{
   display: flex;
   justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 
@@ -122,4 +123,5 @@ header nav{
   border-radius: 20px;
   font-size: 20px;
   cursor: pointer;
+  margin: 10px auto;
 }
